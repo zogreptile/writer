@@ -1,4 +1,42 @@
 $(function () {
+    //Форум
+    var $replyBtn = $('.posts__reply-btn');
+
+    $replyBtn.click(function() {
+        var $this = $(this);
+        var $replyFormContainer = $this.siblings('.posts__reply-form');
+
+        $replyFormContainer.slideToggle();
+    });
+
+    $('.js-reply-form').submit(function(e) {
+        e.preventDefault();
+        var $form = $(this);
+        var $submitBtn = $form.find('[type="submit"]');
+
+        if (window.utils.validateForm($form)) {
+            $submitBtn.addClass('btn--loading');
+            $.ajax({
+                type: $form.attr('method'),
+                url: $form.attr('action'),
+                data: $form.serialize(),
+                dataType: 'json',
+                success: function () {
+                    window.utils.notification('Сообщение успешно отправлено', 4000);
+                    $form.find('input , textarea').not('input:hidden, input:submit').val('');
+                    $form.slideUp();
+                    $submitBtn.removeClass('btn--loading');
+                }
+            });
+        }
+        else {
+            window.utils.notification('Проверьте правильность введенных данных', 3000);
+            $submitBtn.removeClass('btn--loading');
+        }
+    });
+
+
+
     //Пользовательское соглашение
     var $agreement = $('.agreement'),
         $agreementCheck = $agreement.find('.agreement__checkbox'),
@@ -14,18 +52,15 @@ $(function () {
 
     //-------------
     function isMobile() {
-        if (navigator.userAgent.match(/Android/i) ||
+        return (
+            navigator.userAgent.match(/Android/i)||
             navigator.userAgent.match(/webOS/i) ||
             navigator.userAgent.match(/iPhone/i) ||
             navigator.userAgent.match(/iPad/i) ||
             navigator.userAgent.match(/iPod/i) ||
             navigator.userAgent.match(/BlackBerry/i) ||
-            navigator.userAgent.match(/Windows Phone/i)) {
-            return true;
-        } 
-        else {
-            return false;
-        }
+            navigator.userAgent.match(/Windows Phone/i)
+        );
     }
 
     window.utils = {
@@ -93,7 +128,7 @@ $(function () {
 
             function checkEmailField(field) {
                 var val = field.value,
-                    regexp = /^[0-9a-zА-Яа-я\-\_\.]+\@[0-9a-zА-Яа-я-]{2,}\.[a-zА-Яа-я]{2,}$/i;
+                    regexp = /@/;
 
                 if (val !== '' && val.match(regexp)) {
                     return true;
