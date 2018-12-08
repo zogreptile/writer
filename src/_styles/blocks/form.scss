@@ -1,0 +1,57 @@
+.form {
+  margin: 0 auto;
+  font-size: 14px;
+  @include clearfix();
+
+  input, 
+  textarea {
+      display: block;
+      padding: 10px;
+      border: 1px solid $orange;
+      border: 1px solid $peach;
+      @include placeholder();
+  }
+}
+
+.form__field-wrap {
+  height: 100%;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form__field-wrap--fullwidth {
+  clear: both;
+}
+
+.form__field-alert {
+  margin-right: 15px;
+  padding: 1px;
+  border: 1px solid $peach;
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  bottom: calc(100% - 1px);
+}
+
+.form__submit {
+  padding: 0 15px;
+  @include clearfix();
+
+  @media (min-width: 768px) {
+      .control {
+          width: calc(100% - 210px);
+          float: left;
+      }
+
+      .btn {
+          float: right;
+      }
+  }
+
+  @media (max-width: 767px) {
+      .btn {
+          margin: 20px auto 0;
+          display: block;
+      }
+  }
+}

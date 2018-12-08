@@ -1,0 +1,38 @@
+{% extends "layout/base.html" %}
+
+{% block title%}Музыка{% endblock %}
+{% block og_title%}Музыка{% endblock %}
+
+{% block extra_styles%}
+{% endblock %}
+  
+{% block content %}
+    <div class="container">
+        <div class="title">
+            <h2>Музыка</h2>
+        </div>
+        
+        <article class="item">
+            <div class="item__inner">
+                <div class="item__img">
+                    <img src="media/music1.jpg" alt="">
+                </div>
+                <div class="item__info">
+                    <h3 class="item__title">Мертвая хватка</h3>
+                    <ul class="list">
+                        <li class="list__item">
+                            <p>В 2015 году Министерство культуры Правительства Хабаровского края выпустило аудиодиск с песнями К. Партыки в различных жанрах, в которых когда либо работал автор - от "бардовской" песни и шансона до хард-рока. Это своего рода "джем" из произведений разных лет.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="item__get">
+                <a href="#">Слушать</a>
+                <a href="#">Скачать</a>
+            </div>
+        </article>
+    </div>
+{% endblock %}
+
+{% block extra_scripts %}
+{% endblock %}

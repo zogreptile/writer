@@ -1,0 +1,46 @@
+.item {
+    padding: 15px;
+    // background-color: #ffede9;
+    background-color: #fff4f2;
+    border-top: 1px solid $peach;
+
+    &:not(:last-child) {
+        margin-bottom: 40px;
+    }
+}
+
+.item__inner {
+    display: flex;
+}
+
+.item__img {
+    margin-right: 20px;
+    width: 100px;
+    flex-shrink: 0;
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+}
+
+.item__info {
+    flex-grow: 1;
+}
+
+.item__title {
+    margin-bottom: 14px;
+    font-family: $second-font;
+    font-size: 26px;
+}
+
+.item__get {
+    margin-top: 16px;
+    font-size: 14px;
+    text-align: right;
+
+    a {
+        display: inline-block;
+        margin-left: 15px;
+    }
+}

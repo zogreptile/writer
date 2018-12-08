@@ -1,0 +1,30 @@
+{% extends "layout/base.html" %}
+
+{% block title%}Видео{% endblock %}
+{% block og_title%}Видео{% endblock %}
+
+{% block extra_styles%}
+{% endblock %}
+  
+{% block content %}
+    <div class="container">
+        <div class="title">
+            <h2>Видео</h2>
+        </div>
+
+        <div class="editor-content mb-15">
+            <p>Видеоролики на композиции Кирилла Партыки в исполнении групп "Дорога 2.0", "СеКира" (в соавторстве с Сергеем Леонтьевым), "Вавилон н. э." Авторы роликов Елена Луганская, Кирилл Партыка.</p>
+        </div>
+        
+        <section class="item">
+            <ol class="list list--ordered">
+                {% for item in videos %}
+                    <li class="list__item"><a href="{{ item.url }}">{{ item.title }}</a></li>
+                {% endfor %}
+            </ol>
+        </section>
+    </div>
+{% endblock %}
+
+{% block extra_scripts %}
+{% endblock %}

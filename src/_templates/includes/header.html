@@ -1,0 +1,18 @@
+<header class="header">
+    <div class="container">
+        <section class="intro">
+            <div class="intro__photo">
+                <a href="/"><img src="img/avatar.jpg" alt="Партыка Кирилл Александрович"></a>
+            </div>
+            <h1 class="intro__text">Кирилл Александрович Партыка, член Союза писателей России с 1995 года, прозаик, поэт, автор и исполнитель песен, рок-музыкант, дважды лауреат литературной премии Губернатора Хабаровского края.</h1>
+        </section>
+    
+        <nav class="menu">
+            <ul class="menu__list">
+                {% for item in menu %}
+                    <li class="menu__item"><a class="menu__link" href="{{ item.url }}">{{ item.text }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,36 @@
+.intro {
+    margin-bottom: 20px;
+    
+    @media (min-width: 768px) {
+        display: flex;
+    }
+}
+
+.intro__photo {
+    width: 90px;
+    margin: 0 auto 15px;
+    flex-shrink: 0;
+
+    img {
+        display: block;
+        width: 100%;
+    }
+
+    @media (min-width: 768px) {
+        width: 220px;
+        margin: 0 25px 0 0;
+    }
+}
+
+.intro__text {
+    padding: 10px 0;
+    border-top: 3px solid $orange;
+    border-bottom: 3px solid $orange;
+    font-family: $second-font;
+    font-size: 20px;
+
+    @media (min-width: 768px) {
+        padding: 15px 0;
+        font-size: 32px;
+    }
+}

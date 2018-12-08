@@ -1,0 +1,18 @@
+.menu__list {
+    @include list-reset();
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.menu__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+        margin-right: 25px;
+    }
+}
+
+.menu__link {
+    display: inline-block;
+    padding: 10px 0;
+}

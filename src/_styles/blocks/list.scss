@@ -1,0 +1,18 @@
+.list {
+    @include list-reset();
+}
+
+.list--ordered {
+    padding-left: 20px;
+    li {
+        list-style: decimal;
+    }
+}
+
+.list__item {
+    line-height: 1.2;
+
+    &:not(:last-child) {
+        margin-bottom: 8px;
+    }
+}

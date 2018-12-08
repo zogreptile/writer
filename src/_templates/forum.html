@@ -1,0 +1,89 @@
+{% extends "layout/base.html" %}
+
+{% block title%}Форум{% endblock %}
+{% block og_title%}Форум{% endblock %}
+
+{% block extra_styles%}
+{% endblock %}
+  
+{% block content %}
+    <div class="container">
+        <div class="title">
+            <h2>Форум</h2>
+        </div>
+        
+        <form class="form js-reply-form mb-30" action="">
+            <div class="form__field-wrap">
+                <input class="js-required" type="text" name="reply_name" placeholder="Имя">
+            </div>
+            <div class="form__field-wrap">
+                <textarea rows="3" name="reply_message" placeholder="Сообщение"></textarea>
+            </div>
+            <div class="text-right">
+                <button class="btn" type="submit">Отправить</button>
+            </div>
+        </form>
+
+        {% if posts.length %}
+            <ul class="posts posts--left-offset">
+                {% for item in posts %}
+                    <li class="posts__item">
+                        <span class="posts__item-author">{{ item.author }}</span>
+                        <time class="posts__item-date" datetime="{{ item.date_robot }}">{{ item.date_view }}</time>
+                        <div class="posts__item-text">{{ item.text }}</div>
+                        <div>
+                            <div class="text-right">
+                                <button class="posts__reply-btn" type="button">Ответить</button>
+                            </div>
+                            <div class="posts__reply-form">
+                                <form class="form js-reply-form" action="">
+                                    <div class="form__field-wrap">
+                                        <input class="js-required" type="text" name="reply_name" placeholder="Имя">
+                                    </div>
+                                    <div class="form__field-wrap">
+                                        <textarea rows="3" name="reply_message" placeholder="Сообщение"></textarea>
+                                    </div>
+                                    <div class="text-right">
+                                        <button class="btn" type="submit">Отправить</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        {% if item.replies.length %}
+                            <ul class="posts">
+                                {% for reply in item.replies %}
+                                    <li class="posts__item">
+                                        <span class="posts__item-author">{{ reply.author }}</span>
+                                        <time class="posts__item-date" datetime="{{ reply.date_robot }}">{{ reply.date_view }}</time>
+                                        <div class="posts__item-text">{{ reply.text }}</div>
+                                        <div>
+                                            <div class="text-right">
+                                                <button class="posts__reply-btn" type="button">Ответить</button>
+                                            </div>
+                                            <div class="posts__reply-form">
+                                                <form class="form js-reply-form" action="">
+                                                    <div class="form__field-wrap">
+                                                        <input class="js-required" type="text" name="reply_name" placeholder="Имя">
+                                                    </div>
+                                                    <div class="form__field-wrap">
+                                                        <textarea rows="3" name="reply_message" placeholder="Сообщение"></textarea>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <button class="btn" type="submit">Отправить</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block extra_scripts %}
+{% endblock %}
